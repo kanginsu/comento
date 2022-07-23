@@ -1,4 +1,4 @@
-package com.example.comento.Controller;
+package com.example.comento.Entity;
 
 import lombok.*;
 

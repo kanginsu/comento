@@ -32,9 +32,8 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation ('org.springframework.boot:spring-boot-starter-test') {
-        exclude group: 'org.junit.vintage:junit-vintage-engine:5.8.2' // JUnit 4 vs JUnit5
+        exclude group: 'org.junit.vintage:junit-vintage-engine:5.8.2'
     }
-    // querydsl : jpa 로 고급 질의 처리 어려움을 해결
     implementation "com.querydsl:querydsl-jpa:5.0.0"
     implementation "com.querydsl:querydsl-apt:5.0.0"
 }
