@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3> Detail </h3>
+<tr th:each="b : ${board}">
+    <a th:href="@{'/board'+'/update/'+ ${b.bno}}"> 수정하기 </a>
+    <a th:href="@{'/board/'+'list'}"> 뒤로가기 </a>
+
+    <form th:action="@{'/board/'+'list'}" th:object="${board}" th:method="delete" id="deleteForm">
+        <a onclick="javascript:deleteBoard()"> On Click</a>
+    </form>
+
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        function deleteBoard()
+        {
+            var isDelete = confirm("회원 탈퇴 하시겠습니까?");
+            if(isDelete){
+                var delform = document.getElementById("deleteForm");
+                delform.submit();
+            }
+        }
+
+        /*]]>*/
+    </script>
+
+    <div>
+        <label> 제목 : </label>
+        [[${b.title}]]
+    </div>
+    <br>
+    <br>
+    <div>
+        <label> 글쓴이 : </label>
+        [[${b.name}]]
+    </div>
+    <br>
+    <br>
+    <div>
+        <label> 내용 : </label>
+        [[${b.context}]]
+    </div>
+    <br>
+    <br>
+    <div>
+        <label> 만든 날짜 : </label>
+        [[${b.createdDate}]]
+    </div>
+    <br>
+    <br>
+    <div>
+        <label> 수정 날짜 : </label>
+        [[${b.modifiedDate}]]
+    </div>
+    <br>
+    <br>
+    <div>
+        <label> 조회수 : </label>
+        [[${b.views}]]
+    </div>
+</tr>
+
+</body>
+</html>

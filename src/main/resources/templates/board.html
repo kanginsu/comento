@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시판 만들기</title>
+</head>
+<body>
+<a th:href = "@{/board/create}"> Create </a>
+<table border="1"
+       width="50%"
+       height="200"
+       cellspacing="5">
+    <th>번호</th>
+    <th>제목</th>
+    <th>이름</th>
+    <th>만든 날짜</th>
+    <th>수정 날짜</th>
+    <th>views</th>
+    <tr align="center" th:each="b : ${board}">
+        <td><a th:href="@{'/board'+'/list/' + ${b.bno}}">[[${b.bno}]]</a></td>
+        <td th:text="${b.title}"></td>
+        <td th:text="${b.name}"></td>
+        <td th:text="${b.createdDate}"></td>
+        <td th:text="${b.modifiedDate}"></td>
+        <td th:text="${b.views}"></td>
+    </tr>
+</table>
+</body>
+</html>
