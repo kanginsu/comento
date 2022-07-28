@@ -5,9 +5,8 @@
     <title>Title</title>
 </head>
 <body>
-<a href="/"> 메인화면 </a>
 <h3> 수정하기 </h3>
-<a th:href="@{'/board/'+'list'+${board.bno}}"> 뒤로가기 </a>
+<a th:href="@{'/board/'+'list/'+${board.bno}}"> 뒤로가기 </a>
 <form th:action="@{'/board/'+ 'list/'+${board.bno}}" th:object="${board}" method="post">
     <input type="hidden" name="_method" value="PUT">
     <input type="hidden" name="bno" id="bno" th:field="*{bno}">

@@ -10,23 +10,11 @@
     <a th:href="@{'/board'+'/update/'+ ${b.bno}}"> 수정하기 </a>
     <a th:href="@{'/board/'+'list'}"> 뒤로가기 </a>
 
-    <form th:action="@{'/board/'+'list'}" th:object="${board}" th:method="delete" id="deleteForm">
-        <a onclick="javascript:deleteBoard()"> On Click</a>
+    <form th:action="@{'/board/'+'list'+'/'+${b.bno}}" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="delete">
     </form>
 
-    <script th:inline="javascript">
-        /*<![CDATA[*/
-        function deleteBoard()
-        {
-            var isDelete = confirm("회원 탈퇴 하시겠습니까?");
-            if(isDelete){
-                var delform = document.getElementById("deleteForm");
-                delform.submit();
-            }
-        }
-
-        /*]]>*/
-    </script>
 
     <div>
         <label> 제목 : </label>

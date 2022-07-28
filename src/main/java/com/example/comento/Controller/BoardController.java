@@ -58,4 +58,10 @@ private final BoardServiceImpl boardServiceImpl;
         return "redirect:/board/list";
     }
 
+    @DeleteMapping("/list/{bno}")
+    public String deleteBoard(@PathVariable("bno")Long bno, Model model){
+        boardService.delete(bno);
+        return "redirect:/board/list";
+    }
+
 }

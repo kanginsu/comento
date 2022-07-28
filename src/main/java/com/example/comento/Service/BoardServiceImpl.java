@@ -50,6 +50,11 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
+    public void delete(Long bno) {
+        boardRepository.deleteById(bno);
+    }
+
+    @Transactional
     public List<Board> readAll() {
         List<Board> Board = boardRepository.findAll();
         return Board;

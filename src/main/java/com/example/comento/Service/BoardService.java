@@ -14,5 +14,5 @@ public interface BoardService {
  Board getReadById(Long bno);
  int updateViews(Long bno);
  void update(BoardDTO board);
-
+ void delete(Long bno);
 }
